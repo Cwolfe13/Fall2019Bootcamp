@@ -15,7 +15,7 @@ var requestHandler = function(request, response) {
 
   if (parsedUrl.pathname === '/listings') {
     response.writeHead(200, {'Content-Type' : 'application/json'});
-    response.write(JSON.stringify(listingData));
+    response.write(JSON.parse(listingData));
     response.end();
   } else {
     response.writeHead(404, {'Content-Type' : 'text/plain'});
@@ -49,7 +49,7 @@ fs.readFile('listings.json', 'utf8', function(err, data) {
     //*/
     //Data  is the contents of the file.
     //listingData = data;
-    listingData = JSON.parse(data);
+    listingData = JSON.stringify(data);
     console.log(listingData);
     //Check for errors
     if (err) throw err;
