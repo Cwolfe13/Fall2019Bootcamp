@@ -15,7 +15,7 @@ var requestHandler = function(request, response) {
 
   if (parsedUrl.pathname === '/listings') {
     response.writeHead(200, {'Content-Type' : 'application/json'});
-    response.write(JSON.stringify(listingData)); //something needed on the end here maybe?
+    response.write(JSON.stringify(listingData));
     response.end();
   } else {
     response.writeHead(404, {'Content-Type' : 'text/plain'});
@@ -59,7 +59,7 @@ fs.readFile('listings.json', 'utf8', function(err, data) {
 
     //Creates the server
     server = http.createServer(requestHandler);
-  //Start the server
+    //Start the server
     server.listen(8080);
     console.log('server listening on http://localhost:8080');
 
